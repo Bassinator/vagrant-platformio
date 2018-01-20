@@ -1,0 +1,13 @@
+---
+- name: base configure
+  hosts: all
+  become: true
+  become_method: sudo
+
+
+  tasks:
+
+  - name: install pip
+    yum:
+      name: pip
+      state: present
