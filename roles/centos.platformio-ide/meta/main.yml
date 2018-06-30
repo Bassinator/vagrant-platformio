@@ -1,0 +1,4 @@
+---
+dependencies:
+  - { role: centos.atom }
+#  - { role: apache, apache_port: 80 }

@@ -1,0 +1,13 @@
+---
+- name: provision platformio ide
+  hosts: all
+  become: true
+  become_method: sudo
+  vars_files:
+  - secrets.yml
+
+  roles:
+  - centos.base
+  - centos.mate
+  - centos.atom
+  - centos.platformio-ide

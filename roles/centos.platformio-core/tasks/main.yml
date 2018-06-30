@@ -1,0 +1,37 @@
+---
+- name: register epel repo
+  yum_repository:
+    name: epel
+    description: EPEL YUM repo
+    baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
+
+# - name: yum update
+#   yum:
+#     name: '*'
+#     state: latest
+
+- name: install pip
+  yum:
+    name: python-pip
+    state: latest
+
+- name: install platformio
+  pip:
+    name: platformio
+    state: latest
+
+- name: copy platformio udev Rules
+  get_url:
+    url: https://raw.githubusercontent.com/platformio/platformio-core/develop/scripts/99-platformio-udev.rules
+    dest: /etc/udev/rules.d/99-platformio-udev.rules
+  register: udevrules
+
+- name: reload udev rules
+  command: 'udevadm control --reload-rules'
+  when: udevrules.changed
+
+- name: set the pio access token environment variable
+  lineinfile:
+    path: ~/.bashrc
+    line: 'export PLATFORMIO_AUTH_TOKEN={{ pioAccountToken }}'
+  become_user: vagrant
