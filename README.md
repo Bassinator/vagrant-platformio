@@ -11,6 +11,3 @@ oracle VM VirtualBox Extension Pack needed
 - pio account login
 
 - pio remote agent start
-
-- udev.rules note working. Need to chmod 666 /dev/ttyYCM0 manually
-
