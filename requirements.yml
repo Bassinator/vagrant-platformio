@@ -1,0 +1,11 @@
+- src: https://github.com/Bassinator/ansible-role-nodered.git
+  scm: git
+
+- src: https://github.com/Bassinator/ansible-role-mate-desktop.git
+  scm: git
+
+- src: https://github.com/Bassinator/ansible-role-mosquitto.git
+  scm: git
+
+- src: https://github.com/Bassinator/ansible-role-atom.git
+  scm: git
